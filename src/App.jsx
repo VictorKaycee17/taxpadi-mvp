@@ -20,8 +20,7 @@ function App() {
                     </h1>
                 </header>
 
-                {/* Tax Tips Section */}
-                <TaxTips />
+
 
                 {/* Tool Switcher */}
                 <div className="flex justify-center mb-8">
@@ -62,6 +61,9 @@ function App() {
                     {activeTab === 'vat' && <VatCalculator />}
                     {activeTab === 'cgt' && <CapitalGainsCalculator />}
                 </main>
+
+                {/* Tax Tips Section */}
+                <TaxTips />
 
                 <Footer />
             </div>
