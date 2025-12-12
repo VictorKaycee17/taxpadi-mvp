@@ -1,12 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getPadiResponse } from '../utils/padiKnowledgeBase';
+import { trackEvent } from '../utils/analytics';
 
 /**
  * Padi AI Chat Assistant Component
  * Provides interactive tax assistance through a chat interface
  */
 const PadiChat = ({ isOpen, onClose }) => {
+    // Track chat open
+    useEffect(() => {
+        if (isOpen) {
+            trackEvent('chat_opened');
+        }
+    }, [isOpen]);
+
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -42,6 +50,12 @@ const PadiChat = ({ isOpen, onClose }) => {
         setMessages(prev => [...prev, userMessage]);
         setInputValue('');
         setIsTyping(true);
+
+        // Track user question
+        trackEvent('chat_query', {
+            query_length: inputValue.length,
+            has_keywords: /(tax|rate|deduction|relief|pension)/i.test(inputValue)
+        });
 
         // Simulate thinking delay
         await new Promise(resolve => setTimeout(resolve, 800));
@@ -111,8 +125,8 @@ const PadiChat = ({ isOpen, onClose }) => {
                                 )}
                                 <div
                                     className={`rounded-2xl p-3 ${message.sender === 'user'
-                                            ? 'bg-primary text-white rounded-br-sm'
-                                            : 'bg-white text-text rounded-bl-sm shadow-md border border-gray-100'
+                                        ? 'bg-primary text-white rounded-br-sm'
+                                        : 'bg-white text-text rounded-bl-sm shadow-md border border-gray-100'
                                         }`}
                                 >
                                     <p className="text-sm whitespace-pre-wrap">{message.text}</p>

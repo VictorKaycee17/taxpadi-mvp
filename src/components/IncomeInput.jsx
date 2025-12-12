@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { trackEvent } from '../utils/analytics';
 
 /**
  * Income Input Component
@@ -22,6 +23,11 @@ const IncomeInput = ({ value, onChange }) => {
                     step="1000"
                     value={value || ''}
                     onChange={(e) => onChange(parseFloat(e.target.value) || 0)}
+                    onBlur={() => {
+                        if (value > 0) {
+                            trackEvent('income_entered', { value_range: value < 1000000 ? 'low' : value < 10000000 ? 'mid' : 'high' });
+                        }
+                    }}
                     placeholder="5,000,000"
                     className="currency-input"
                 />

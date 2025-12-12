@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { trackEvent } from '../utils/analytics';
 
 /**
  * Deductions Form Component
@@ -33,6 +34,9 @@ const DeductionsForm = ({ deductions, onChange }) => {
                         step="1000"
                         value={deductions.pension || ''}
                         onChange={(e) => handleChange('pension', e.target.value)}
+                        onBlur={() => {
+                            if (deductions.pension > 0) trackEvent('deduction_entered', { type: 'pension' });
+                        }}
                         placeholder="400,000"
                         className="currency-input"
                     />
@@ -58,6 +62,9 @@ const DeductionsForm = ({ deductions, onChange }) => {
                         step="100"
                         value={deductions.nhf || ''}
                         onChange={(e) => handleChange('nhf', e.target.value)}
+                        onBlur={() => {
+                            if (deductions.nhf > 0) trackEvent('deduction_entered', { type: 'nhf' });
+                        }}
                         placeholder="12,500"
                         className="currency-input"
                     />
@@ -83,6 +90,9 @@ const DeductionsForm = ({ deductions, onChange }) => {
                         step="1000"
                         value={deductions.nhis || ''}
                         onChange={(e) => handleChange('nhis', e.target.value)}
+                        onBlur={() => {
+                            if (deductions.nhis > 0) trackEvent('deduction_entered', { type: 'nhis' });
+                        }}
                         placeholder="50,000"
                         className="currency-input"
                     />

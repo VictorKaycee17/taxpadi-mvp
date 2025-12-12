@@ -7,6 +7,7 @@ import CompanyTaxInput from './CompanyTaxInput';
 import TaxResults from './TaxResults';
 import TaxForecast from './TaxForecast';
 import { calculateTax } from '../utils/taxCalculator';
+import { trackEvent } from '../utils/analytics';
 
 /**
  * Main Tax Calculator Component
@@ -38,11 +39,13 @@ const TaxCalculator = () => {
         // Validate inputs based on user type
         if (userType === 'individual' && grossIncome <= 0) {
             alert('Please enter a valid gross income');
+            trackEvent('tax_calculation_error', { userType, error: 'invalid_gross_income' });
             return;
         }
 
         if (userType === 'company' && annualTurnover <= 0) {
             alert('Please enter a valid annual turnover');
+            trackEvent('tax_calculation_error', { userType, error: 'invalid_turnover' });
             return;
         }
 
@@ -59,6 +62,16 @@ const TaxCalculator = () => {
             annualTurnover,
         });
 
+        // Track successful tax calculation
+        trackEvent('tax_calculated', {
+            userType,
+            grossIncome: userType === 'individual' ? grossIncome : null,
+            turnover: userType === 'company' ? annualTurnover : null,
+            totalTax: taxResults.tax?.total || taxResults.totalTax || 0,
+            hasDeductions: userType === 'individual' ? (deductions.pension > 0 || deductions.nhf > 0 || deductions.nhis > 0) : null,
+            hasRentRelief: userType === 'individual' ? annualRent > 0 : null
+        });
+
         setResults(taxResults);
         setShowResults(true);
 
@@ -72,6 +85,7 @@ const TaxCalculator = () => {
     };
 
     const handleReset = () => {
+        trackEvent('form_reset', { userType });
         setGrossIncome(0);
         setDeductions({ pension: 0, nhf: 0, nhis: 0 });
         setAnnualRent(0);
@@ -81,6 +95,7 @@ const TaxCalculator = () => {
     };
 
     const handleQuickFill = () => {
+        trackEvent('quick_fill_used', { userType });
         if (userType === 'individual') {
             // Sample individual data
             setGrossIncome(5000000);
@@ -97,6 +112,7 @@ const TaxCalculator = () => {
     };
 
     const handleUserTypeChange = (newType) => {
+        trackEvent('user_type_changed', { fromType: userType, toType: newType });
         setUserType(newType);
         setResults(null);
         setShowResults(false);

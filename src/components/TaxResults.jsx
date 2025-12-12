@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { formatCurrency } from '../utils/taxCalculator';
 import { generateTaxPDF } from '../utils/pdfGenerator';
+import { trackEvent } from '../utils/analytics';
 
 /**
  * Tax Results Component
@@ -44,7 +45,10 @@ const TaxResults = ({ results }) => {
 
                 {/* Download PDF Button */}
                 <button
-                    onClick={() => generateTaxPDF({ userType: 'company' }, results)}
+                    onClick={() => {
+                        trackEvent('download_pdf', { userType: 'company' });
+                        generateTaxPDF({ userType: 'company' }, results);
+                    }}
                     className="w-full mb-6 bg-white hover:bg-gray-50 text-primary font-semibold 
                              py-4 px-6 rounded-xl border-2 border-primary transition-all duration-200 
                              transform hover:scale-105 hover:shadow-xl
@@ -125,7 +129,10 @@ const TaxResults = ({ results }) => {
 
             {/* Download PDF Button */}
             <button
-                onClick={() => generateTaxPDF({ userType: 'individual' }, results)}
+                onClick={() => {
+                    trackEvent('download_pdf', { userType: 'individual' });
+                    generateTaxPDF({ userType: 'individual' }, results);
+                }}
                 className="w-full mb-6 bg-white hover:bg-gray-50 text-primary font-semibold 
                          py-4 px-6 rounded-xl border-2 border-primary transition-all duration-200 
                          transform hover:scale-105 hover:shadow-xl
