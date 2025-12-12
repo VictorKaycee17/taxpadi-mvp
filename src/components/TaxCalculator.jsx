@@ -195,6 +195,12 @@ const TaxCalculator = () => {
                         />
                     )}
 
+                    {/* Privacy Notice */}
+                    <div className="mt-8 mb-4 p-3 bg-green-50 rounded-lg border border-green-100 flex items-center justify-center gap-2 text-xs text-gray-600 text-center">
+                        <span className="text-base">🔒</span>
+                        <span className="font-medium">Privacy Guaranteed: Data stays on this device. We do not store or report your income.</span>
+                    </div>
+
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 mt-6">
                         <button

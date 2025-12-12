@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import TaxTips from './components/TaxTips';
 import TaxCalculator from './components/TaxCalculator';
 import PadiChat from './components/PadiChat';
+import Footer from './components/Footer';
 
 function App() {
     const [isChatOpen, setIsChatOpen] = useState(false);
@@ -24,20 +26,15 @@ function App() {
                     </div>
                 </header>
 
+                {/* Tax Tips Section */}
+                <TaxTips />
+
                 {/* Main Calculator */}
                 <main>
                     <TaxCalculator />
                 </main>
 
-                {/* Footer */}
-                <footer className="mt-12 text-center text-text-light text-sm animate-fade-in">
-                    <p className="mb-2">
-                        Built for Nigerian professionals and businesses
-                    </p>
-                    <p className="text-xs">
-                        Tax calculations are estimates. Please consult with a tax professional for official advice.
-                    </p>
-                </footer>
+                <Footer />
             </div>
 
             {/* Floating Action Button (FAB) */}
