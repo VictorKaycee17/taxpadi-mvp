@@ -4,7 +4,7 @@ import React from 'react';
  * Footer Component
  * Displays copyright info and feedback link
  */
-const Footer = () => {
+const Footer = ({ onOpenTerms, onOpenPrivacy }) => {
     const currentYear = new Date().getFullYear();
     const email = 'hello@taxpadi.com';
     const subject = encodeURIComponent('TaxPadi Feedback');
@@ -18,6 +18,20 @@ const Footer = () => {
 
             <div className="flex items-center justify-center gap-4 text-xs">
                 <span>&copy; {currentYear} TaxPadi</span>
+                <span className="text-gray-300">|</span>
+                <button
+                    onClick={onOpenTerms}
+                    className="text-gray-500 hover:text-primary transition-colors duration-200"
+                >
+                    Terms of Use
+                </button>
+                <span className="text-gray-300">|</span>
+                <button
+                    onClick={onOpenPrivacy}
+                    className="text-gray-500 hover:text-primary transition-colors duration-200"
+                >
+                    Privacy Policy
+                </button>
                 <span className="text-gray-300">|</span>
                 <a
                     href={`mailto:${email}?subject=${subject}&body=${body}`}

@@ -5,10 +5,21 @@ import VatCalculator from './components/VatCalculator';
 import CapitalGainsCalculator from './components/CapitalGainsCalculator';
 import PadiChat from './components/PadiChat';
 import Footer from './components/Footer';
+import Terms from './components/Terms';
+import Privacy from './components/Privacy';
 
 function App() {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('tax'); // 'tax' or 'vat'
+    const [currentView, setCurrentView] = useState('home'); // 'home' or 'terms'
+
+    if (currentView === 'terms') {
+        return <Terms onBack={() => setCurrentView('home')} />;
+    }
+
+    if (currentView === 'privacy') {
+        return <Privacy onBack={() => setCurrentView('home')} />;
+    }
 
     return (
         <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
@@ -65,7 +76,10 @@ function App() {
                 {/* Tax Tips Section */}
                 <TaxTips />
 
-                <Footer />
+                <Footer
+                    onOpenTerms={() => setCurrentView('terms')}
+                    onOpenPrivacy={() => setCurrentView('privacy')}
+                />
             </div>
 
             {/* Floating Action Button (FAB) */}
