@@ -64,7 +64,7 @@ const Privacy = ({ onBack }) => {
                         </ul>
 
                         <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. AI Chat & Third-Party Processing</h2>
-                        <p className="mb-2">When you chat with Padi (via Web, WhatsApp, or Voice):</p>
+                        <p className="mb-2">When you chat with Gee (via Web, WhatsApp, or Voice):</p>
                         <ul className="list-disc pl-5 space-y-2 mb-6">
                             <li>Your messages are sent to our AI providers (e.g., OpenAI, Vapi.ai) solely to generate a response.</li>
                             <li>These providers are bound by strict data processing agreements.</li>

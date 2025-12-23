@@ -5,7 +5,7 @@
 
 // Knowledge base content (embedded for quick access)
 const KNOWLEDGE_BASE = `
-# Padi - Nigerian Tax Assistant
+# Gee - Nigerian Tax Assistant
 
 ## Personal Income Tax (PIT)
 
@@ -184,7 +184,7 @@ The new system is actually more generous for most taxpayers!`
 ];
 
 /**
- * Get AI response from Padi
+ * Get AI response from Gee
  * Simulates AI by pattern matching against knowledge base
  */
 export function getPadiResponse(userMessage) {
@@ -192,7 +192,7 @@ export function getPadiResponse(userMessage) {
 
     // Check greeting
     if (messageLower.match(/^(hi|hello|hey|good)/)) {
-        return `Hello! 👋 I'm Padi, your friendly Nigerian tax assistant!
+        return `Hello! 👋 I'm Gee, your friendly Nigerian tax assistant!
 
 I can help you understand:
 • Tax bands and rates
@@ -217,7 +217,7 @@ What would you like to know about Nigerian tax?`;
     }
 
     // Default response if no pattern matches
-    return `I'm Padi, your tax assistant! 🤔
+    return `I'm Gee, your tax assistant! 🤔
 
 I can help you with:
 • Tax bands and calculation

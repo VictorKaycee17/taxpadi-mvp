@@ -67,12 +67,12 @@ const Terms = ({ onBack }) => {
                             <li>We are not liable for any discrepancies, errors, or financial losses resulting from reliance on our calculations.</li>
                         </ul>
 
-                        <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. The "Padi" AI Assistant</h2>
-                        <p className="mb-4">Our chat feature ("Padi") is powered by Artificial Intelligence.</p>
+                        <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">3. The "Gee" AI Assistant</h2>
+                        <p className="mb-4">Our chat feature ("Gee") is powered by Artificial Intelligence.</p>
                         <ul className="list-disc pl-5 space-y-2 mb-6">
                             <li>
                                 <strong>Potential Errors:</strong> AI models can occasionally produce incorrect or
-                                "hallucinated" information. Always cross-check Padi’s advice against official government publications.
+                                "hallucinated" information. Always cross-check Gee’s advice against official government publications.
                             </li>
                             <li>
                                 <strong>No Liability:</strong> We accept no liability for actions taken based on conversations with the AI agent.
@@ -103,7 +103,7 @@ const Terms = ({ onBack }) => {
                         <p className="mb-2">By using TaxGee, you agree:</p>
                         <ul className="list-disc pl-5 space-y-2 mb-6">
                             <li>Not to use the platform for fraudulent tax evasion or illegal financial activities.</li>
-                            <li>Not to reverse-engineer, scrape, or copy our code, logic, or the "Padi" persona.</li>
+                            <li>Not to reverse-engineer, scrape, or copy our code, logic, or the "Gee" persona.</li>
                             <li>That you are solely responsible for the accuracy of the data you input into the calculator.</li>
                         </ul>
 

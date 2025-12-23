@@ -4,7 +4,7 @@ import { getPadiResponse } from '../utils/padiKnowledgeBase';
 import { trackEvent } from '../utils/analytics';
 
 /**
- * Padi AI Chat Assistant Component
+ * Gee AI Chat Assistant Component
  * Provides interactive tax assistance through a chat interface
  */
 const PadiChat = ({ isOpen, onClose }) => {
@@ -19,7 +19,7 @@ const PadiChat = ({ isOpen, onClose }) => {
         {
             id: 1,
             sender: 'padi',
-            text: '👋 Hello! I\'m Padi, your Nigerian tax assistant. I can help you understand tax bands, reliefs, deductions, and more. What would you like to know?',
+            text: '👋 Hello! I\'m Gee, your Nigerian tax assistant. I can help you understand tax bands, reliefs, deductions, and more. What would you like to know?',
             timestamp: new Date()
         }
     ]);
@@ -95,7 +95,7 @@ const PadiChat = ({ isOpen, onClose }) => {
                             <span className="text-2xl">🤖</span>
                         </div>
                         <div>
-                            <h3 className="font-bold text-lg">Padi</h3>
+                            <h3 className="font-bold text-lg">Gee</h3>
                             <p className="text-xs opacity-90">Tax Assistant</p>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ const PadiChat = ({ isOpen, onClose }) => {
                             <div className={`max-w-[80%] ${message.sender === 'user' ? 'order-2' : 'order-1'}`}>
                                 {message.sender === 'padi' && (
                                     <div className="flex items-center gap-2 mb-1">
-                                        <span className="text-xs font-semibold text-primary">Padi</span>
+                                        <span className="text-xs font-semibold text-primary">Gee</span>
                                     </div>
                                 )}
                                 <div

@@ -8,7 +8,7 @@ const Footer = ({ onOpenTerms, onOpenPrivacy }) => {
     const currentYear = new Date().getFullYear();
     const email = 'hello@taxgee.com';
     const subject = encodeURIComponent('TaxGee Feedback');
-    const body = encodeURIComponent('Hi Padi Team, I noticed...');
+    const body = encodeURIComponent('Hi Gee Team, I noticed...');
 
     return (
         <footer className="mt-12 py-6 border-t border-gray-100 text-center text-text-light text-sm animate-fade-in">

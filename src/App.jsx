@@ -8,6 +8,8 @@ import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
 
+import logo from './assets/logo.png';
+
 function App() {
     const [isChatOpen, setIsChatOpen] = useState(false);
     const [activeTab, setActiveTab] = useState('tax'); // 'tax' or 'vat'
@@ -25,9 +27,9 @@ function App() {
         <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
-                <header className="text-center mb-6 animate-fade-in flex flex-col items-center justify-center">
-                    <img src="/src/assets/logo.png" alt="TaxGee Logo" className="w-24 h-24 mb-4" />
-                    <h1 className="text-4xl sm:text-5xl font-bold text-gradient mb-3">
+                <header className="text-center mb-6 animate-fade-in flex flex-row items-center justify-center gap-4">
+                    <img src={logo} alt="TaxGee Logo" className="w-16 h-16" />
+                    <h1 className="text-4xl sm:text-5xl font-bold text-gradient mb-0">
                         TaxGee
                     </h1>
                 </header>
@@ -94,7 +96,7 @@ function App() {
                              transition-all duration-200 transform hover:scale-110
                              focus:outline-none focus:ring-4 focus:ring-primary/50
                              group"
-                    aria-label="Open Padi Chat Assistant"
+                    aria-label="Open Gee Chat Assistant"
                 >
                     <svg className="w-8 h-8 group-hover:scale-110 transition-transform"
                         fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +106,7 @@ function App() {
                     {/* Tooltip */}
                     <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-text text-white text-xs rounded-lg
                                   opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        Ask Padi 💬
+                        Ask Gee 💬
                     </div>
                 </button>
             )}
