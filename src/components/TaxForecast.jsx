@@ -58,17 +58,17 @@ const TaxForecast = ({ annualTax, userType = 'individual' }) => {
         let icsContent = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:-//TaxPadi//Tax Calendar//EN',
+            'PRODID:-//TaxGee//Tax Calendar//EN',
             'CALSCALE:GREGORIAN',
             'METHOD:PUBLISH',
-            'X-WR-CALNAME:TaxPadi Tax Calendar 2026',
+            'X-WR-CALNAME:TaxGee Tax Calendar 2026',
             'X-WR-TIMEZONE:Africa/Lagos',
             'X-WR-CALDESC:Important tax dates for Nigerian taxpayers'
         ];
 
         events.forEach(event => {
             const dateStr = event.date.replace(/-/g, '');
-            const uid = `${dateStr}-${event.title.replace(/\s/g, '-')}@taxpadi.com`;
+            const uid = `${dateStr}-${event.title.replace(/\s/g, '-')}@taxgee.com`;
 
             icsContent.push('BEGIN:VEVENT');
             icsContent.push(`UID:${uid}`);
@@ -95,7 +95,7 @@ const TaxForecast = ({ annualTax, userType = 'individual' }) => {
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'taxpadi-tax-calendar-2026.ics');
+        link.setAttribute('download', 'taxgee-tax-calendar-2026.ics');
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -105,7 +105,7 @@ const TaxForecast = ({ annualTax, userType = 'individual' }) => {
     // Feature: Social Sharing
     const [copySuccess, setCopySuccess] = useState(false);
 
-    const shareMessage = encodeURIComponent('I just sorted my 2026 Tax Plan using TaxPadi. It calculates your Rent Relief and new tax bands instantly. Check it out here: https://taxpadi-mvp.vercel.app');
+    const shareMessage = encodeURIComponent('I just sorted my 2026 Tax Plan using TaxGee. It calculates your Rent Relief and new tax bands instantly. Check it out here: https://taxpadi-mvp.vercel.app');
 
     const handleWhatsAppShare = () => {
         trackEvent('share_on_whatsapp', { source: 'forecast_component' });

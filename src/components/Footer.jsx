@@ -6,8 +6,8 @@ import React from 'react';
  */
 const Footer = ({ onOpenTerms, onOpenPrivacy }) => {
     const currentYear = new Date().getFullYear();
-    const email = 'hello@taxpadi.com';
-    const subject = encodeURIComponent('TaxPadi Feedback');
+    const email = 'hello@taxgee.com';
+    const subject = encodeURIComponent('TaxGee Feedback');
     const body = encodeURIComponent('Hi Padi Team, I noticed...');
 
     return (
@@ -17,7 +17,7 @@ const Footer = ({ onOpenTerms, onOpenPrivacy }) => {
             </p>
 
             <div className="flex items-center justify-center gap-4 text-xs">
-                <span>&copy; {currentYear} TaxPadi</span>
+                <span>&copy; {currentYear} TaxGee</span>
                 <span className="text-gray-300">|</span>
                 <button
                     onClick={onOpenTerms}

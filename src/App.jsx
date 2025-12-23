@@ -25,9 +25,10 @@ function App() {
         <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
-                <header className="text-center mb-6 animate-fade-in">
+                <header className="text-center mb-6 animate-fade-in flex flex-col items-center justify-center">
+                    <img src="/src/assets/logo.png" alt="TaxGee Logo" className="w-24 h-24 mb-4" />
                     <h1 className="text-4xl sm:text-5xl font-bold text-gradient mb-3">
-                        TaxPadi
+                        TaxGee
                     </h1>
                 </header>
 

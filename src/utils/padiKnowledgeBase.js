@@ -155,7 +155,7 @@ You can get it from FIRS (Federal Inland Revenue Service) or your State tax offi
 5️⃣ Apply progressive tax bands
 6️⃣ = Total Tax
 
-The TaxPadi calculator does all this automatically! Just enter your details and click Calculate Tax. 😊`
+The TaxGee calculator does all this automatically! Just enter your details and click Calculate Tax. 😊`
     },
     {
         keywords: ['cra', 'consolidated relief', 'allowance'],
@@ -179,7 +179,7 @@ The new system is actually more generous for most taxpayers!`
 • Individual: Usually 6 months after year-end
 • Companies: Usually 6 months after year-end
 
-💡 Tip: Use the TaxPadi calendar download feature to get all important dates with reminders!`
+💡 Tip: Use the TaxGee calendar download feature to get all important dates with reminders!`
     }
 ];
 

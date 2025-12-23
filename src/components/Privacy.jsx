@@ -30,11 +30,11 @@ const Privacy = ({ onBack }) => {
 
                     <div className="prose prose-slate max-w-none text-gray-800">
                         <p className="mb-6">
-                            At TaxPadi, we believe your financial data belongs to you. This Privacy Policy explains how
+                            At TaxGee, we believe your financial data belongs to you. This Privacy Policy explains how
                             we handle your information when you use our web application, mobile PWA, and AI assistant.
                         </p>
                         <p className="mb-6">
-                            By using TaxPadi, you agree to the practices described in this policy.
+                            By using TaxGee, you agree to the practices described in this policy.
                         </p>
 
                         <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">1. The Core Promise: Your Data Stays with You</h2>
@@ -106,7 +106,7 @@ const Privacy = ({ onBack }) => {
 
                         <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">8. Contact Us</h2>
                         <p className="mb-6">
-                            If you have questions about this policy or our privacy practices, please contact us at: Email: <a href="mailto:hello@taxpadi.com" className="text-primary hover:underline">hello@taxpadi.com</a>
+                            If you have questions about this policy or our privacy practices, please contact us at: Email: <a href="mailto:hello@taxgee.com" className="text-primary hover:underline">hello@taxgee.com</a>
                         </p>
                     </div>
                 </div>

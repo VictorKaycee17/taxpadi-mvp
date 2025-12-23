@@ -1,5 +1,5 @@
 /**
- * TaxPadi - Nigerian Tax Calculator Engine
+ * TaxGee - Nigerian Tax Calculator Engine
  * Nigeria Tax Act 2025 (Effective January 1, 2026)
  * Source: Tax_Rules_Spec.md
  */
