@@ -7,6 +7,19 @@ import GeeChat from './components/GeeChat';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
+import ProToggle from './components/ProToggle';
+import AuthWidget from './components/AuthWidget';
+import AppLayout from './layouts/AppLayout';
+import Dashboard from './pages/Dashboard';
+import Invoicing from './pages/Invoicing';
+import SalesTax from './pages/SalesTax';
+import PolicyEngine from './pages/PolicyEngine';
+import Calendar from './pages/Calendar';
+import Payroll from './pages/Payroll';
+import Audit from './pages/Audit';
+import DocumentReview from './pages/DocumentReview';
+import Practitioner from './pages/Practitioner';
+import Settings from './pages/Settings';
 
 import logo from './assets/logo.png';
 
@@ -15,6 +28,9 @@ function App() {
     const [activeTab, setActiveTab] = useState('tax');
     const [currentView, setCurrentView] = useState('home');
     const [theme, setTheme] = useState('light');
+    const [isPro, setIsPro] = useState(false);
+    const [isProLoggedIn, setIsProLoggedIn] = useState(false);
+    const [activeProPage, setActiveProPage] = useState('dashboard');
 
     // Handle Theme Change
     React.useEffect(() => {
@@ -38,98 +54,119 @@ function App() {
     }
 
     return (
-        <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                {/* Header */}
-                <header className="text-center mb-6 animate-fade-in flex flex-row items-center justify-center gap-4">
-                    <img src={logo} alt="TaxGee Logo" className="w-16 h-16" />
-                    <h1 className="text-4xl sm:text-5xl font-bold text-gradient mb-0">
-                        TaxGee
-                    </h1>
-                </header>
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
+            {/* Global Pro Toggle */}
+            <ProToggle isPro={isPro} onToggle={setIsPro} />
 
-
-
-                {/* Tool Switcher */}
-                <div className="flex justify-center mb-8">
-                    <div className="bg-white/50 backdrop-blur-sm p-1 rounded-full border border-gray-200 shadow-sm inline-flex">
-                        <button
-                            onClick={() => setActiveTab('tax')}
-                            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'tax'
-                                ? 'bg-primary text-white shadow-md'
-                                : 'text-gray-500 hover:text-gray-700'
-                                }`}
-                        >
-                            Income Tax
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('vat')}
-                            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'vat'
-                                ? 'bg-purple-600 text-white shadow-md'
-                                : 'text-gray-500 hover:text-gray-700'
-                                }`}
-                        >
-                            VAT Calculator
-                        </button>
-                        <button
-                            onClick={() => setActiveTab('cgt')}
-                            className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'cgt'
-                                ? 'bg-emerald-600 text-white shadow-md'
-                                : 'text-gray-500 hover:text-gray-700'
-                                }`}
-                        >
-                            Capital Gains
-                        </button>
-                    </div>
+            {isPro ? (
+                <div className="animate-fade-in">
+                    {/* Full Screen Pro Layout */}
+                    <AppLayout activePage={activeProPage} onNavigate={setActiveProPage}>
+                        {activeProPage === 'dashboard' && <Dashboard />}
+                        {activeProPage === 'invoicing' && <Invoicing />}
+                        {activeProPage === 'salestax' && <SalesTax />}
+                        {activeProPage === 'policy' && <PolicyEngine />}
+                        {activeProPage === 'calendar' && <Calendar />}
+                        {activeProPage === 'payroll' && <Payroll />}
+                        {activeProPage === 'audit' && <Audit />}
+                        {activeProPage === 'review' && <DocumentReview />}
+                        {activeProPage === 'practitioner' && <Practitioner />}
+                        {activeProPage === 'settings' && <Settings />}
+                    </AppLayout>
                 </div>
+            ) : (
+                <div className="py-8 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+                    {/* Free Version Header */}
+                    <header className="text-center mb-6 animate-fade-in flex flex-row items-center justify-center gap-4">
+                        <img src={logo} alt="TaxGee Logo" className="w-16 h-16" />
+                        <h1 className="text-4xl sm:text-5xl font-bold text-gradient mb-0">
+                            TaxGee
+                        </h1>
+                    </header>
 
-                {/* Main Calculator Area */}
-                <main>
-                    {activeTab === 'tax' && <TaxCalculator />}
-                    {activeTab === 'vat' && <VatCalculator />}
-                    {activeTab === 'cgt' && <CapitalGainsCalculator />}
-                </main>
+                    {/* Tool Switcher */}
+                    <div className="flex justify-center mb-8">
+                        <div className="bg-white/50 backdrop-blur-sm p-1 rounded-full border border-gray-200 shadow-sm inline-flex">
+                            <button
+                                onClick={() => setActiveTab('tax')}
+                                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'tax'
+                                    ? 'bg-primary text-white shadow-md'
+                                    : 'text-gray-500 hover:text-gray-700'
+                                    }`}
+                            >
+                                Income Tax
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('vat')}
+                                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'vat'
+                                    ? 'bg-purple-600 text-white shadow-md'
+                                    : 'text-gray-500 hover:text-gray-700'
+                                    }`}
+                            >
+                                VAT Calculator
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('cgt')}
+                                className={`px-6 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activeTab === 'cgt'
+                                    ? 'bg-emerald-600 text-white shadow-md'
+                                    : 'text-gray-500 hover:text-gray-700'
+                                    }`}
+                            >
+                                Capital Gains
+                            </button>
+                        </div>
+                    </div>
 
-                {/* Tax Tips Section */}
-                <TaxTips />
+                    {/* Main Calculator Area */}
+                    <main>
+                        {activeTab === 'tax' && <TaxCalculator />}
+                        {activeTab === 'vat' && <VatCalculator />}
+                        {activeTab === 'cgt' && <CapitalGainsCalculator />}
+                    </main>
 
-                <Footer
-                    onOpenTerms={() => setCurrentView('terms')}
-                    onOpenPrivacy={() => setCurrentView('privacy')}
-                    theme={theme}
-                    toggleTheme={toggleTheme}
-                />
-            </div>
+                    {/* Tax Tips Section */}
+                    <TaxTips />
+
+                    <Footer
+                        onOpenTerms={() => setCurrentView('terms')}
+                        onOpenPrivacy={() => setCurrentView('privacy')}
+                        theme={theme}
+                        toggleTheme={toggleTheme}
+                    />
+                </div>
+            )}
 
             {/* Floating Action Button (FAB) */}
-            {!isChatOpen && (
-                <button
-                    onClick={() => setIsChatOpen(true)}
-                    className="fixed bottom-6 right-6 z-40
+            {
+                !isChatOpen && (
+                    <button
+                        onClick={() => setIsChatOpen(true)}
+                        className="fixed bottom-6 right-6 z-40
                              w-16 h-16 bg-primary hover:bg-primary-dark
                              text-white rounded-full shadow-2xl
                              flex items-center justify-center
                              transition-all duration-200 transform hover:scale-110
                              focus:outline-none focus:ring-4 focus:ring-primary/50
                              group"
-                    aria-label="Open Gee Chat Assistant"
-                >
-                    <svg className="w-8 h-8 group-hover:scale-110 transition-transform"
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-                            d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                    </svg>
-                    {/* Tooltip */}
-                    <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-text text-white text-xs rounded-lg
+                        aria-label="Open Gee Chat Assistant"
+                    >
+                        <svg className="w-8 h-8 group-hover:scale-110 transition-transform"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                        {/* Tooltip */}
+                        <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-text text-white text-xs rounded-lg
                                   opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        Ask Gee 💬
-                    </div>
-                </button>
-            )}
+                            Ask Gee 💬
+                        </div>
+                    </button>
+                )
+            }
 
             {/* Padi Chat Assistant */}
             <GeeChat isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
-        </div>
+        </div >
     );
 }
 

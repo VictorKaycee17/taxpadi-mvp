@@ -9,13 +9,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
     "@vercel/analytics": "^1.6.1",
     "jspdf": "^3.0.4",
     "jspdf-autotable": "^5.0.2",
     "posthog-js": "^1.304.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recharts": "^3.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
