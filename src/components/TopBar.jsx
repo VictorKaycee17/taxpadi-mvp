@@ -6,7 +6,7 @@ import {
     UserCircleIcon
 } from '@heroicons/react/24/outline';
 
-const TopBar = ({ onMenuClick }) => {
+const TopBar = ({ onMenuClick, onNavigate }) => {
     return (
         <header className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 h-16 px-4 sm:px-8 flex items-center justify-between sticky top-0 z-20 shadow-sm">
             {/* Mobile Menu Toggle */}
@@ -51,7 +51,10 @@ const TopBar = ({ onMenuClick }) => {
                 </button>
 
                 {/* Profile Placeholder */}
-                <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hidden sm:flex items-center justify-center text-slate-400 cursor-pointer hover:ring-2 hover:ring-teal-500/20 transition-all">
+                <div
+                    onClick={() => onNavigate('profile')}
+                    className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 hidden sm:flex items-center justify-center text-slate-400 cursor-pointer hover:ring-2 hover:ring-teal-500/20 transition-all border-2 border-transparent hover:border-teal-500"
+                >
                     <UserCircleIcon className="w-8 h-8" />
                 </div>
             </div>

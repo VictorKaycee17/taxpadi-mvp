@@ -30,7 +30,7 @@ const AppLayout = ({ children, activePage, onNavigate }) => {
             )}
 
             <div className="lg:pl-[260px] transition-all duration-300">
-                <TopBar onMenuClick={toggleSidebar} />
+                <TopBar onMenuClick={toggleSidebar} onNavigate={onNavigate} />
                 <main className="min-h-[calc(100vh-64px)]">
                     {children}
                 </main>

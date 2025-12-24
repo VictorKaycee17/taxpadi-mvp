@@ -2,7 +2,6 @@ import React from 'react';
 import {
     ChevronDownIcon,
     CalendarIcon,
-    HistoryIcon,
     QuestionMarkCircleIcon,
     DocumentDuplicateIcon,
     PaperAirplaneIcon

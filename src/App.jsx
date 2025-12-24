@@ -18,8 +18,12 @@ import Calendar from './pages/Calendar';
 import Payroll from './pages/Payroll';
 import Audit from './pages/Audit';
 import DocumentReview from './pages/DocumentReview';
-import Practitioner from './pages/Practitioner';
+import Receipts from './pages/Receipts';
+import FilingHub from './pages/FilingHub';
+import POSSales from './pages/POSSales';
+import VendorBills from './pages/VendorBills';
 import Settings from './pages/Settings';
+import Profile from './pages/Profile';
 
 import logo from './assets/logo.png';
 
@@ -28,9 +32,9 @@ function App() {
     const [activeTab, setActiveTab] = useState('tax');
     const [currentView, setCurrentView] = useState('home');
     const [theme, setTheme] = useState('light');
-    const [isPro, setIsPro] = useState(false);
+    const [isPro, setIsPro] = useState(true);
     const [isProLoggedIn, setIsProLoggedIn] = useState(false);
-    const [activeProPage, setActiveProPage] = useState('dashboard');
+    const [activeProPage, setActiveProPage] = useState('settings');
 
     // Handle Theme Change
     React.useEffect(() => {
@@ -70,8 +74,12 @@ function App() {
                         {activeProPage === 'payroll' && <Payroll />}
                         {activeProPage === 'audit' && <Audit />}
                         {activeProPage === 'review' && <DocumentReview />}
-                        {activeProPage === 'practitioner' && <Practitioner />}
+                        {activeProPage === 'receipts' && <Receipts />}
+                        {activeProPage === 'filingHub' && <FilingHub />}
+                        {activeProPage === 'posSales' && <POSSales />}
+                        {activeProPage === 'vendorBills' && <VendorBills />}
                         {activeProPage === 'settings' && <Settings />}
+                        {activeProPage === 'profile' && <Profile onGoToSettings={() => setActiveProPage('settings')} />}
                     </AppLayout>
                 </div>
             ) : (
