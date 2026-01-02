@@ -7,7 +7,7 @@ import GeeChat from './components/GeeChat';
 import Footer from './components/Footer';
 import Terms from './components/Terms';
 import Privacy from './components/Privacy';
-import ProToggle from './components/ProToggle';
+// ProToggle removed to disconnect Pro version
 import ProVersionSelector from './components/ProVersionSelector';
 import AuthWidget from './components/AuthWidget';
 import AppLayout from './layouts/AppLayout';
@@ -108,8 +108,7 @@ function App() {
 
     return (
         <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-            {/* Global Pro Toggle */}
-            <ProToggle isPro={isPro} onToggle={setIsPro} />
+            {/* Pro Toggle removed - Free version only */}
 
             {isPro ? (
                 <div className="animate-fade-in">
